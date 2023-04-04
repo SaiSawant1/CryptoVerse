@@ -1,6 +1,15 @@
 import React from "react";
-import ReactDOM  from "react-dom";
-import App from "./App"
+import ReactDOM from "react-dom";
+import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import 'antd/dist/reset.css';
-ReactDOM.render(<Router><App/></Router> ,document.getElementById("root"))
+import { Provider } from "react-redux";
+import "antd/dist/reset.css";
+import store from "./app/store";
+ReactDOM.render(
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
+  document.getElementById("root")
+);
