@@ -98,7 +98,6 @@ const CryptoDetails = () => {
       icon: <ExclamationCircleOutlined />,
     },
   ];
-  console.log(coinHistory?.data);
   if (isFetching) return "loading";
   return (
     <div>
@@ -116,10 +115,10 @@ const CryptoDetails = () => {
           defaultValue="7d"
           className="seletct-timeperiod"
           placeholder="select time period"
-          onChange={(e) => setTimePeriod(e.target.value)}
+          onChange={(e) => (setTimePeriod(e))}
         >
           {time.map((options, index) => (
-            <Option key={index}>{options}</Option>
+            <Option value={options} key={index}>{options}</Option>
           ))}
         </Select>
         <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name}/>
